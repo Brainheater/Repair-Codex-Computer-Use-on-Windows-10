@@ -3,7 +3,7 @@ param(
   [ValidateSet('Inspect', 'Install', 'Rollback')]
   [string]$Action = 'Inspect',
   [string]$HelperPath,
-  [string]$ProfilePath = (Join-Path $PSScriptRoot 'profile-win10-codex-26.1002.7124-sky-0.7.6.json')
+  [string]$ProfilePath = (Join-Path $PSScriptRoot '..\\profiles\\profile-win10-codex-26.1002.7124-sky-0.7.6.json')
 )
 
 $ErrorActionPreference = 'Stop'

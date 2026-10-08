@@ -8,8 +8,28 @@ The profile routes Windows Graphics Capture `FrameArrived` work to an MTA worker
 
 ## Included files
 
-- `profile-win10-codex-26.1002.7124-sky-0.7.6.json`: full input and output hashes plus byte-level guards and replacements for the exact helper tested locally.
+- `profiles/profile-win10-codex-26.1002.7124-sky-0.7.6.json`: full input and output hashes plus byte-level guards and replacements for the exact helper tested locally.
 - The original helper is not included. Do not download or distribute proprietary helper binaries as part of this profile.
+
+## Use
+
+Run PowerShell as the same Windows user who runs Codex. First inspect the detected helper:
+
+```powershell
+.\scripts\Repair-CodexCapture.ps1 -Action Inspect
+```
+
+If the result is `original-patchable`, install the profile and accept the `ShouldProcess` confirmation:
+
+```powershell
+.\scripts\Repair-CodexCapture.ps1 -Action Install
+```
+
+To restore the verified original backup later:
+
+```powershell
+.\scripts\Repair-CodexCapture.ps1 -Action Rollback
+```
 
 The profile is adapted from [the Windows 10 capture analysis](https://github.com/chen0416ccc-cpu/codex-windows-fast-patch-skill/blob/main/references/win10-computer-use-screenshot-backend.md) and issues [#46435](https://github.com/openai/codex/issues/46435) and [#51245](https://github.com/openai/codex/issues/51245). The referenced project does not publish a license file; this release includes attribution and keeps the profile separate from any asserted license for that project’s code.
 
